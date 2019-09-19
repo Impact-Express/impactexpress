@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f0f4e3-e066-4f43-af12-8225d133f9a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHL.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHL.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRateRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRequest.php" afterDir="false" />
@@ -9,6 +10,8 @@
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSTracking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSTracking.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/HERMES/HERMES.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/HERMES/HERMES.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/LANDMARKGLOBAL/LANDMARKGLOBAL.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/LANDMARKGLOBAL/LANDMARKGLOBAL.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/CarrierInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/CarrierInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/GeneratesUuid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GeneratesUuid.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/kendo/Black/editor.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/kendo/Black/editor.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/kendo/Black/imagebrowser.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/kendo/Black/imagebrowser.png" afterDir="false" />
@@ -2624,6 +2627,7 @@
   <component name="ProjectId" id="1R3EDTJmLrqbQlhP7LO9jjMb2zq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2659,7 +2663,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568887260540</updated>
-      <workItem from="1568887265369" duration="3533000" />
+      <workItem from="1568887265369" duration="3776000" />
     </task>
     <servers />
   </component>
