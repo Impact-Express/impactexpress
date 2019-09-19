@@ -14,6 +14,9 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
@@ -104,6 +107,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1R3EDTJmLrqbQlhP7LO9jjMb2zq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -138,11 +142,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568887260540</updated>
-      <workItem from="1568887265369" duration="2529000" />
+      <workItem from="1568887265369" duration="2648000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
