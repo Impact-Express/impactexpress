@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+}
+
+.address {
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.address-item {
+  display: inline-block;
+}
+
+.address-summary {
+  width: 400px;
+}
+
+.fieldlist {
+  padding: 0;
+}
+
+.fieldlist li {
+  list-style: none;
+  padding-bottom: 2em;
+}
+
+.fieldlist label {
+  display: block;
+  padding-bottom: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #444;
+}
+
