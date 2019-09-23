@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f0f4e3-e066-4f43-af12-8225d133f9a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHL.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHL.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRateRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carriers/DHL/DHLGLOWSRequest.php" afterDir="false" />
@@ -26,7 +27,30 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TariffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TariffController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrackingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrackingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AccountNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccountNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AddressType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AddressType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Carrier.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Carrier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CostTariff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CostTariff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CostTariffValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CostTariffValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CountryCostTariffZone.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CountryCostTariffZone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CountrySalesTariffZone.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CountrySalesTariffZone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CustomerSalesTariff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CustomerSalesTariff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Piece.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Piece.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/RemoteArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/RemoteArea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Responses/ServiceRequestResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Responses/ServiceRequestResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Responses/ShipmentRequestResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Responses/ShipmentRequestResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Responses/TrackingRequestResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Responses/TrackingRequestResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SalesTariff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SalesTariff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SalesTariffValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SalesTariffValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Shipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Shipment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ShipmentStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ShipmentStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Traits/GeneratesUuid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GeneratesUuid.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/kendo/Black/editor.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/kendo/Black/editor.png" afterDir="false" />
@@ -2679,7 +2703,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568887260540</updated>
-      <workItem from="1568887265369" duration="4019000" />
+      <workItem from="1568887265369" duration="5310000" />
     </task>
     <servers />
   </component>
