@@ -1,0 +1,19 @@
+iframe {
+  width: 100%;
+  height: 740px;
+}
+
+#shipment-items {
+  list-style-type: none;
+}
+
+.shipment-item {
+  border: 1px solid #eee;
+  padding:5px 10px;
+  margin:10px 0;
+  display: flex;
+}
+
+.card {
+  flex-basis: 45%;
+}

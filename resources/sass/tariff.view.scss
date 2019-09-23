@@ -1,0 +1,32 @@
+.panels {
+  width: 100%;
+  height: 1170px;
+  border: 1px solid #777;
+  background-color: #f3f3f3;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-1 {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 25%;
+}
+
+.panel-2 {
+  border: 1px solid #777;
+  flex-basis: 73%;
+}
+
+.panel-1a {
+  border: 1px solid #777;
+  flex-basis: 49%;
+}
+
+.panel-1b {
+  border: 1px solid #777;
+  flex-basis: 49%;
+}
