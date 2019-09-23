@@ -6,6 +6,7 @@ use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Arr;
 
 class AddressController extends Controller
 {
@@ -47,16 +48,16 @@ class AddressController extends Controller
 
         $address = new Address();
         $address->user_id = Auth::id();
-        $address->contact_name = array_first($request->input('contact_name'));
-        $address->company_name = array_first($request->input('company_name'));
-        $address->line_1 = array_first($request->input('line_1'));
-        $address->line_2 = array_first($request->input('line_2'));
-        $address->line_3 = array_first($request->input('line_3'));
-        $address->town = array_first($request->input('town'));
-        $address->country_id = array_first($request->input('country'));
-        $address->postcode = array_first($request->input('postcode'));
-        $address->contact_phone = array_first($request->input('contact_phone'));
-        $address->address_type_id = array_first($request->input('address_type_id'));
+        $address->contact_name = Arr::first($request->input('contact_name'));
+        $address->company_name = Arr::first($request->input('company_name'));
+        $address->line_1 = Arr::first($request->input('line_1'));
+        $address->line_2 = Arr::first($request->input('line_2'));
+        $address->line_3 = Arr::first($request->input('line_3'));
+        $address->town = Arr::first($request->input('town'));
+        $address->country_id = Arr::first($request->input('country'));
+        $address->postcode = Arr::first($request->input('postcode'));
+        $address->contact_phone = Arr::first($request->input('contact_phone'));
+        $address->address_type_id = Arr::first($request->input('address_type_id'));
         $address->save();
 
         return redirect('/address');
@@ -95,15 +96,15 @@ class AddressController extends Controller
             return back()->withInput()->withErrors($validator);
         }
 
-        $address->contact_name = array_first($request->input('contact_name'));
-        $address->company_name = array_first($request->input('company_name'));
-        $address->line_1 = array_first($request->input('line_1'));
-        $address->line_2 = array_first($request->input('line_2'));
-        $address->line_3 = array_first($request->input('line_3'));
-        $address->town = array_first($request->input('town'));
-        $address->country_id = array_first($request->input('country'));
-        $address->postcode = array_first($request->input('postcode'));
-        $address->contact_phone = array_first($request->input('contact_phone'));
+        $address->contact_name = Arr::first($request->input('contact_name'));
+        $address->company_name = Arr::first($request->input('company_name'));
+        $address->line_1 = Arr::first($request->input('line_1'));
+        $address->line_2 = Arr::first($request->input('line_2'));
+        $address->line_3 = Arr::first($request->input('line_3'));
+        $address->town = Arr::first($request->input('town'));
+        $address->country_id = Arr::first($request->input('country'));
+        $address->postcode = Arr::first($request->input('postcode'));
+        $address->contact_phone = Arr::first($request->input('contact_phone'));
         $address->save();
 
         return redirect('/address');

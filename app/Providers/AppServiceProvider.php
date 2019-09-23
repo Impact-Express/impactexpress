@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Blade::directive('ifCustomer', function() {
+            return "<?php if (!auth()->user()->isAdmin()): ?>";
+        });
+
+        \Blade::directive('ifAdmin', function() {
+            return "<?php if (auth()->user()->isAdmin()): ?>";
+        });
     }
 }

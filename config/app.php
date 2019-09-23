@@ -2,6 +2,12 @@
 
 return [
 
+    /**
+     * DHL Test Site Config
+     */
+    'dhl_glows_sandpit_username' => env('DHL_GLOWS_SANDPIT_USERNAME'),
+    'dhl_glows_sandpit_password' => env('DHL_GLOWS_SANDPIT_PASSWORD'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
