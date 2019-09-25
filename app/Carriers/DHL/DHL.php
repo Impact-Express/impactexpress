@@ -170,18 +170,12 @@ class DHL extends Model implements CarrierInterface
         $tracking->buildRequestBody($request);
         $tr = $tracking->send();
         $t = $tr->trackShipmentRequestResponse->trackingResponse->TrackingResponse;
-dd($tr);
+//dd($tr);
         $trackingRequestResult = new TrackingRequestResult();
         $trackingRequestResult->shipmentRef = $t->AWBInfo->ArrayOfAWBInfoItem->ShipmentInfo->ShipperReference->ReferenceID;
         $trackingRequestResult->consigneeName = $t->AWBInfo->ArrayOfAWBInfoItem->ShipmentInfo->ConsigneeName;
         $trackingRequestResult->numberOfPieces = $t->AWBInfo->ArrayOfAWBInfoItem->ShipmentInfo->Pieces;
 
-
-
-
-
-
-dd($trackingRequestResult);
         return $trackingRequestResult;
     }
 

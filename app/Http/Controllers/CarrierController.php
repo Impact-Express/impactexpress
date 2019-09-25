@@ -55,7 +55,7 @@ class CarrierController extends Controller
         $carrier->save();
 
         // redirect
-        return redirect(route('admin.carriers.profile', ['id' => $carrier->id]));
+        return redirect(route('admin.carriers.profile', [$carrier->id]));
     }
 
     /**

@@ -27,8 +27,8 @@ class TrackingController extends Controller
 
         $trackingData = $shipment->requestTrackingData();
 
-        dd('flibble', $trackingData);
+//        dd('flibble', $trackingData);
 
-        return view('customer.tracking.trackingResults');
+        return view('customer.tracking.trackingResults', compact('trackingData'));
     }
 }
