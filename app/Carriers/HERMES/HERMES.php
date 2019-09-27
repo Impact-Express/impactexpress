@@ -9,7 +9,6 @@ use App\Models\Responses\ServiceRequestResult;
 use App\Contracts\CarrierInterface as Carrier;
 use App\Models\Service;
 
-
 class HERMES extends Model implements Carrier
 {
     public $name = 'HERMES';
@@ -23,6 +22,11 @@ class HERMES extends Model implements Carrier
 
     public function requestAvailableServices($request, int $customerId) : ServiceRequestResult
     {
+        $r = new HermesDetermineDeliveryRouting();
+        $r->buildRequestBody($request);
+        $response = $r->send();
+        dd('herm',$response);
+
 //        $temp->short_name = 'Hermes test short name';
 //        $temp->est_delivery = 'Hermes test delivery date';
 //        $temp->latest_booking = 'Hermes test latest booking';

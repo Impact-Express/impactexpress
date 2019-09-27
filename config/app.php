@@ -8,6 +8,13 @@ return [
     'dhl_glows_sandpit_username' => env('DHL_GLOWS_SANDPIT_USERNAME'),
     'dhl_glows_sandpit_password' => env('DHL_GLOWS_SANDPIT_PASSWORD'),
 
+
+    /**
+     * Hermes sandbox config
+     */
+    'hermes_sandpit_username' => env('HERMES_SANDPIT_USERNAME'),
+    'hermes_sandpit_password' => env('HERMES_SANDPIT_PASSWORD'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

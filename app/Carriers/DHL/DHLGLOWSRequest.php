@@ -36,8 +36,8 @@ abstract class DHLGLOWSRequest extends Model
 		$client = new Client();
 		$response = $client->post($this->baseUri.$this->endpoints[$this->service], [
 			'auth' => [
-                config('app.dhl_glows_sandpit_username'),
-                config('app.dhl_glows_sandpit_password')
+                $this->username,
+                $this->password
 			],
 			'headers' => [
 				'Content-Type' => 'application/json',
