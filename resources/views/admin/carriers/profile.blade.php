@@ -67,167 +67,32 @@
                     <colgroup>
                         <col />
                         <col />
-                        <col style="width:110px" />
-                        <col style="width:120px" />
-                        <col style="width:130px" />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
                     </colgroup>
                     <thead>
                     <tr>
-                        <th data-field="make">Car Make</th>
-                        <th data-field="model">Car Model</th>
-                        <th data-field="year">Year</th>
-                        <th data-field="category">Category</th>
-                        <th data-field="airconditioner">Air Conditioner</th>
+                        <th data-field="ref">Our Ref</th>
+                        <th data-field="model">Airwaybill No</th>
+                        <th data-field="year">Date</th>
+                        <th data-field="category">Sender</th>
+                        <th data-field="airconditioner">Recipient</th>
+                        <th data-field="actions"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Volvo</td>
-                        <td>S60</td>
-                        <td>2010</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Audi</td>
-                        <td>A4</td>
-                        <td>2002</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>BMW</td>
-                        <td>535d</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>BMW</td>
-                        <td>320d</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>VW</td>
-                        <td>Passat</td>
-                        <td>2007</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>VW</td>
-                        <td>Passat</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Peugeot</td>
-                        <td>407</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Honda</td>
-                        <td>Accord</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Alfa Romeo</td>
-                        <td>159</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Nissan</td>
-                        <td>Almera</td>
-                        <td>2001</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Mitsubishi</td>
-                        <td>Lancer</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Opel</td>
-                        <td>Vectra</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Audi</td>
-                        <td>Q7</td>
-                        <td>2007</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Hyundai</td>
-                        <td>Santa Fe</td>
-                        <td>2012</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Hyundai</td>
-                        <td>Santa Fe</td>
-                        <td>2013</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Nissan</td>
-                        <td>Qashqai</td>
-                        <td>2007</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Mercedez</td>
-                        <td>B Class</td>
-                        <td>2007</td>
-                        <td>Hatchback</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Lancia</td>
-                        <td>Ypsilon</td>
-                        <td>2006</td>
-                        <td>Hatchback</td>
-                        <td>Yes</td>
-                    </tr>
+                        @foreach ($carrier->shipments as $shipment)
+                            <tr>
+                                <td>{{$shipment->shipment_ref}}</td>
+                                <td>{{$shipment->airwaybill_number}}</td>
+                                <td>{{$shipment->date}}</td>
+                                <td>{{$shipment->sender_company_name}}</td>
+                                <td>{{$shipment->recipient_company_name}}</td>
+                                <td><a class="k-button k-primary" href="#"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -236,167 +101,23 @@
                     <colgroup>
                         <col />
                         <col />
-                        <col style="width:110px" />
-                        <col style="width:120px" />
-                        <col style="width:130px" />
+                        <col />
                     </colgroup>
                     <thead>
                     <tr>
-                        <th data-field="make">Car Make</th>
-                        <th data-field="model">Car Model</th>
-                        <th data-field="year">Year</th>
-                        <th data-field="category">Category</th>
-                        <th data-field="airconditioner">Air Conditioner</th>
+                        <th data-field="name">Name</th>
+                        <th data-field="import-export">Import/Export</th>
+                        <th data-field="actions"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Volvo</td>
-                        <td>S60</td>
-                        <td>2010</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Audi</td>
-                        <td>A4</td>
-                        <td>2002</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>BMW</td>
-                        <td>535d</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>BMW</td>
-                        <td>320d</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>VW</td>
-                        <td>Passat</td>
-                        <td>2007</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>VW</td>
-                        <td>Passat</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Peugeot</td>
-                        <td>407</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Honda</td>
-                        <td>Accord</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Alfa Romeo</td>
-                        <td>159</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Nissan</td>
-                        <td>Almera</td>
-                        <td>2001</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Mitsubishi</td>
-                        <td>Lancer</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Opel</td>
-                        <td>Vectra</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2006</td>
-                        <td>Saloon</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Toyota</td>
-                        <td>Avensis</td>
-                        <td>2008</td>
-                        <td>Saloon</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Audi</td>
-                        <td>Q7</td>
-                        <td>2007</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Hyundai</td>
-                        <td>Santa Fe</td>
-                        <td>2012</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Hyundai</td>
-                        <td>Santa Fe</td>
-                        <td>2013</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Nissan</td>
-                        <td>Qashqai</td>
-                        <td>2007</td>
-                        <td>SUV</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Mercedez</td>
-                        <td>B Class</td>
-                        <td>2007</td>
-                        <td>Hatchback</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Lancia</td>
-                        <td>Ypsilon</td>
-                        <td>2006</td>
-                        <td>Hatchback</td>
-                        <td>Yes</td>
-                    </tr>
+                        @foreach ($carrier->salesTariffs as $salesTariff)
+                            <tr>
+                                <td>{{$salesTariff->name}}</td>
+                                <td>{{$salesTariff->import_export}}</td>
+                                <td><a class="k-button k-primary" href="#"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

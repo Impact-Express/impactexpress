@@ -21,6 +21,7 @@ class CarrierController extends Controller
 
     public function profile(Carrier $carrier)
     {
+        // dd($carrier->salesTariffs);
         return view('admin.carriers.profile', compact('carrier'));
     }
 
