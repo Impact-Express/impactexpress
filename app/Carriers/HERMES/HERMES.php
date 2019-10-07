@@ -22,10 +22,10 @@ class HERMES extends Model implements Carrier
 
     public function requestAvailableServices($request, int $customerId) : ServiceRequestResult
     {
-        $r = new HermesDetermineDeliveryRouting();
-        $r->buildRequestBody($request);
-        $response = $r->send();
-        dd('herm',$response);
+        // $r = new HermesDetermineDeliveryRouting();
+        // $r->buildRequestBody($request);
+        // $response = $r->send();
+        // dd('herm',$response);
 
 //        $temp->short_name = 'Hermes test short name';
 //        $temp->est_delivery = 'Hermes test delivery date';

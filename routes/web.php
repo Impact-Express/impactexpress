@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function() {
     });
 
     Route::get('/bookinghistory', 'BookingHistoryController@index')->name('booking-history');
+    Route::get('/bookinghistory/{id}', 'BookingHistoryController@booking')->name('booking.info');
 
     Route::get('/label/{shipmentUuid}/Labels', 'LabelsController@serve')->name('label.serve');
 });

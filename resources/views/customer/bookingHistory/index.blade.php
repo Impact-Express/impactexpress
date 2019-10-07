@@ -6,6 +6,7 @@
 		@forelse ($bookings as $booking)
 			<li class="booking-item">
 				{{$booking->shipment_ref}}
+				<a href="{{route('booking.info', ['id' => $booking->id])}}" class="k-button k-primary"><i class="fas fa-eye"></i></a>
 			</li>
 		@empty
 			Make some Bookings sucka!
