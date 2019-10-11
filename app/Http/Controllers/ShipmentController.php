@@ -50,6 +50,11 @@ class ShipmentController extends Controller
         //
     }
 
+    public function info(Shipment $shipment)
+    {
+        dd($shipment);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

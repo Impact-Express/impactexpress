@@ -90,7 +90,7 @@
                                 <td>{{$shipment->date}}</td>
                                 <td>{{$shipment->sender_company_name}}</td>
                                 <td>{{$shipment->recipient_company_name}}</td>
-                                <td><a class="k-button k-primary" href="#"><i class="fas fa-eye"></i></a></td>
+                                <td><a class="k-button k-primary" href="{{route('admin.shipment.info', $shipment->uuid)}}"><i class="fas fa-eye"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -115,7 +115,7 @@
                             <tr>
                                 <td>{{$salesTariff->name}}</td>
                                 <td>{{$salesTariff->import_export}}</td>
-                                <td><a class="k-button k-primary" href="#"><i class="fas fa-eye"></i></a></td>
+                                <td><a class="k-button k-primary" href="{{route('home')}}"><i class="fas fa-eye"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -139,7 +139,7 @@
                         <tr>
                             <td>Remote Area</td>
                             <td>Charge for delivery to remote areas. £0.38 per kg. Minimum charge £19.00 per shipment.</td>
-                            <td><a href="" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
+                            <td><a href="{{route('home')}}" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
                         </tr>
                     </tbody>
                 </table>

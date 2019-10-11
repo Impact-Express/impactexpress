@@ -96,8 +96,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
         Route::get('/view/{tariff}', 'TariffController@show')->name('admin.tariffs.show');
         Route::post('/sales', 'TariffController@storeSales')->name('admin.tariffs.storeSales');
         Route::post('/cost', 'TariffController@storeCost')->name('admin.tariffs.storeCost');
-
-
     });
 
     Route::prefix('customers')->group(function() {
@@ -115,5 +113,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
 
     Route::prefix('services')->group(function() {
         Route::get('/', 'ServicesController@index')->name('admin.services.index');
+    });
+
+    Route::prefix('shipment')->group(function() {
+        Route::get('{shipment}', 'ShipmentController@info')->name('admin.shipment.info');
     });
 });
