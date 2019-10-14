@@ -153,7 +153,7 @@
                 <td>{{$salesTariff->carrier->name}}</td>
                 <td>{{ucfirst($salesTariff->import_export)}}</td>
                 <td>Sales</td>
-                <td><a href="{{route('admin.tariffs.show', ['tariff' => $salesTariff->id])}}" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
+                <td><a href="{{route('admin.salestariff.show', $salesTariff->id)}}" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
             </tr>
         @endforeach
         @foreach($costTariffs as $costTariff)
@@ -162,7 +162,7 @@
                 <td>{{$costTariff->carrier->name}}</td>
                 <td>{{ucfirst($costTariff->import_export)}}</td>
                 <td>Cost</td>
-                <td><a href="{{route('admin.tariffs.show', ['tariff' => $costTariff->id])}}" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
+                <td><a href="{{route('admin.costtariff.show', $costTariff->id)}}" class="k-button k-primary"><i class="fas fa-eye"></i></a></td>
             </tr>
         @endforeach
         </tbody>

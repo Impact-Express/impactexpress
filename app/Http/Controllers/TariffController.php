@@ -47,14 +47,27 @@ class TariffController extends Controller
         return redirect(route('admin.tariffs.index'));
     }
 
-    public function show(CostTariff $tariff)
+    public function showSales(SalesTariff $SalesTariff)
     {
+dd('sales', $SalesTariff);
         $valuesByWeight = [];
         foreach ($tariff->values as $value) {
             $valuesByWeight[$value->weight]['zone'.$value->zone] = $value->price;
         }
         $tariff->valuesByWeight = $valuesByWeight;
 
+        return view('admin.tariffs.show', compact('tariff'));
+    }
+
+    public function showCost(CostTariff $tariff)
+    {
+        dd('cost',$tariff);
+        $valuesByWeight = [];
+        foreach ($tariff->values as $value) {
+            $valuesByWeight[$value->weight]['zone'.$value->zone] = $value->price;
+        }
+        $tariff->valuesByWeight = $valuesByWeight;
+dd($tariff);
         return view('admin.tariffs.show', compact('tariff'));
     }
 

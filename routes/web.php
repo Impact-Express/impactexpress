@@ -75,10 +75,6 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/label/{shipmentUuid}/Labels', 'LabelsController@serve')->name('label.serve');
 });
 
-
-
-
-
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
 
@@ -93,7 +89,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
 
     Route::prefix('tariffs')->group(function() {
         Route::get('/', 'TariffController@index')->name('admin.tariffs.index');
-        Route::get('/view/{tariff}', 'TariffController@show')->name('admin.tariffs.show');
+
+        Route::get('sales/{SalesTariff}', 'TariffController@showSales')->name('admin.salestariff.show');
+
+        Route::get('cost/{costTariff}', 'TariffController@showCost')->name('admin.costtariff.show');
         Route::post('/sales', 'TariffController@storeSales')->name('admin.tariffs.storeSales');
         Route::post('/cost', 'TariffController@storeCost')->name('admin.tariffs.storeCost');
     });

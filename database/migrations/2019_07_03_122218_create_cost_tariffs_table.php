@@ -18,7 +18,6 @@ class CreateCostTariffsTable extends Migration
             $table->string('name');
             $table->string('import_export');
             $table->integer('carrier_id');
-            $table->integer('account_number_id');
             $table->timestamps();
         });
     }
