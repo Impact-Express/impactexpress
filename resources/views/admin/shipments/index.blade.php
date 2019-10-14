@@ -34,6 +34,7 @@
             <td><a class="k-button k-primary" href="{{route('admin.shipment.info', $shipment->uuid)}}"><i class="fas fa-eye"></i></a></td>
         </tr>
         @empty
+        No shipments
         Do some sellin sukka!
         @endforelse
     </tbody>

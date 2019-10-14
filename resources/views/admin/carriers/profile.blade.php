@@ -75,10 +75,10 @@
                     <thead>
                     <tr>
                         <th data-field="ref">Our Ref</th>
-                        <th data-field="model">Airwaybill No</th>
-                        <th data-field="year">Date</th>
-                        <th data-field="category">Sender</th>
-                        <th data-field="airconditioner">Recipient</th>
+                        <th data-field="awb">Airwaybill No</th>
+                        <th data-field="date">Date</th>
+                        <th data-field="sender">Sender</th>
+                        <th data-field="recipient">Recipient</th>
                         <th data-field="actions"></th>
                     </tr>
                     </thead>

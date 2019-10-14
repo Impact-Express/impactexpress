@@ -42,27 +42,31 @@
                         <colgroup>
                             <col />
                             <col />
-                            <col style="width:110px" />
-                            <col style="width:120px" />
-                            <col style="width:130px" />
+                            <col />
+                            <col />
+                            <col />
                         </colgroup>
                         <thead>
                         <tr>
-                            <th data-field="make">Car Make</th>
-                            <th data-field="model">Car Model</th>
-                            <th data-field="year">Year</th>
-                            <th data-field="category">Category</th>
-                            <th data-field="airconditioner">Air Conditioner</th>
+                            <th data-field="ref">Our Ref</th>
+                            <th data-field="carrier">Carrier</th>
+                            <th data-field="awb">Airwaybill No</th>
+                            <th data-field="date">Recipient</th>
+                            <th data-field="actions"></th>
                         </tr>
                         </thead>
                         <tbody>
+                            @forelse ($user->shipments as $shipment)
                             <tr>
-                                <td>Volvo</td>
-                                <td>S60</td>
-                                <td>2010</td>
-                                <td>Saloon</td>
-                                <td>Yes</td>
+                                <td>{{$shipment->shipment_ref}}</td>
+                                <td>{{$shipment->carrier->name}}</td>
+                                <td>{{$shipment->airwaybill_number}}</td>
+                                <td>{{$shipment->recipient_company_name}}</td>
+                                <td><a class="k-button k-primary" href="{{route('admin.shipment.info', $shipment->uuid)}}"><i class="fas fa-eye"></i></a></td>
                             </tr>
+                            @empty
+                            No Shipments
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
