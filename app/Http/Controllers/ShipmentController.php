@@ -15,7 +15,8 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        //
+        $shipments = Shipment::all();
+        return view('admin.shipments.index', compact('shipments'));
     }
 
     /**

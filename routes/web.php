@@ -116,6 +116,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
     });
 
     Route::prefix('shipment')->group(function() {
+        Route::get('/', 'ShipmentController@index')->name('admin.shipments.index');
         Route::get('{shipment}', 'ShipmentController@info')->name('admin.shipment.info');
     });
 });

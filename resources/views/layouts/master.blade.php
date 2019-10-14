@@ -103,8 +103,8 @@
                         <span>Surcharges</span>
                     </a>
                 </li>
-                <li class="nav-item customers-nav active">
-                    <a class="k-link" href="#">
+                <li class="nav-item shipments-nav active">
+                    <a class="k-link" href="{{route('admin.shipments.index')}}">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Shipments</span>
                     </a>

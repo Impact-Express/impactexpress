@@ -1,6 +1,7 @@
 {
     "/js/account.index.js": "/js/account.index.js",
     "/js/address.index.js": "/js/address.index.js",
+    "/js/admin.shipments.index.js": "/js/admin.shipments.index.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/booking.index.css": "/css/booking.index.css",
@@ -19,6 +20,7 @@
     "/css/carrier.profile.css": "/css/carrier.profile.css",
     "/css/customer.profile.css": "/css/customer.profile.css",
     "/css/bookingHistory.index.css": "/css/bookingHistory.index.css",
+    "/css/admin.shipments.index.css": "/css/admin.shipments.index.css",
     "/css/bookingHistory.booking.css": "/css/bookingHistory.booking.css",
     "/js/booking.confirmation.js": "/js/booking.confirmation.js",
     "/js/booking.index.js": "/js/booking.index.js",
