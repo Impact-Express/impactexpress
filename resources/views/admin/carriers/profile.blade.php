@@ -115,12 +115,19 @@
                             <tr>
                                 <td>{{$salesTariff->name}}</td>
                                 <td>{{$salesTariff->import_export}}</td>
-                                <td><a class="k-button k-primary" href="{{route('home')}}"><i class="fas fa-eye"></i></a></td>
+                                <td><a class="k-button k-primary" href="{{route('admin.salestariff.show', $salesTariff->id)}}"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                        @endforeach
+                        @foreach ($carrier->costTariffs as $costTariff)
+                            <tr>
+                                <td>{{$costTariff->name}}</td>
+                                <td>{{$costTariff->import_export}}</td>
+                                <td><a class="k-button k-primary" href="{{route('admin.costtariff.show', $costTariff->id)}}"><i class="fas fa-eye"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> 
             <div>
                 <table class="grid">
                     <colgroup>

@@ -14,6 +14,9 @@
                     <li>
                         <span>Carrier: {{ $CostTariff->carrier->name }}</span>
                     </li>
+                    <li>
+                        <span>Import/Export: {{ $CostTariff->import_export }}</span>
+                    </li>
                 </ul>
             </div>
             <div class="panel-1b">
