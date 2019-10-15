@@ -91,8 +91,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
         Route::get('/', 'TariffController@index')->name('admin.tariffs.index');
 
         Route::get('sales/{SalesTariff}', 'TariffController@showSales')->name('admin.salestariff.show');
-
-        Route::get('cost/{costTariff}', 'TariffController@showCost')->name('admin.costtariff.show');
+        Route::get('cost/{CostTariff}', 'TariffController@showCost')->name('admin.costtariff.show');
         Route::post('/sales', 'TariffController@storeSales')->name('admin.tariffs.storeSales');
         Route::post('/cost', 'TariffController@storeCost')->name('admin.tariffs.storeCost');
     });

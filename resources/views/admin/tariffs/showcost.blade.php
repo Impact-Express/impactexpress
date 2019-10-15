@@ -1,16 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-
+<?php
+// dd($CostTariff);
+?>
     <div class="panels">
         <div class="panel-1">
             <div class="panel-1a">
                 <ul>
                     <li>
-                        <span>Name: {{ $tariff->name }}</span>
+                        <span>Name: {{ $CostTariff->name }}</span>
                     </li>
                     <li>
-                        <span>Carrier: {{ $tariff->carrier->name }}</span>
+                        <span>Carrier: {{ $CostTariff->carrier->name }}</span>
                     </li>
                 </ul>
             </div>
@@ -35,21 +37,21 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th data-field="weight">WEIGHT</th>
-                    <th data-field="zone1">ZONE 1</th>
-                    <th data-field="zone2">ZONE 2</th>
-                    <th data-field="zone3">ZONE 3</th>
-                    <th data-field="zone4">ZONE 4</th>
-                    <th data-field="zone5">ZONE 5</th>
-                    <th data-field="zone6">ZONE 6</th>
-                    <th data-field="zone7">ZONE 7</th>
-                    <th data-field="zone8">ZONE 8</th>
-                    <th data-field="zone9">ZONE 9</th>
-                    <th data-field="zone10">ZONE 10</th>
+                    <th data-field="weight">Kg</th>
+                    <th data-field="zone1">Z1</th>
+                    <th data-field="zone2">Z2</th>
+                    <th data-field="zone3">Z3</th>
+                    <th data-field="zone4">Z4</th>
+                    <th data-field="zone5">Z5</th>
+                    <th data-field="zone6">Z6</th>
+                    <th data-field="zone7">Z7</th>
+                    <th data-field="zone8">Z8</th>
+                    <th data-field="zone9">Z9</th>
+                    <th data-field="zone10">Z10</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($tariff->valuesByWeight as $weight => $values)
+                @foreach($CostTariff->valuesByWeight as $weight => $values)
                     <tr>
                         <td>{{$weight}}</td>
                         <td>{{$values['zone1']}}</td>

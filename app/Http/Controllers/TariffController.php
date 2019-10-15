@@ -49,7 +49,7 @@ class TariffController extends Controller
 
     public function showSales(SalesTariff $SalesTariff)
     {
-// dd('sales', $SalesTariff->values);
+dd('sales', $SalesTariff);
         $valuesByWeight = [];
         foreach ($SalesTariff->values as $value) {
             $valuesByWeight[$value->weight]['zone'.$value->zone] = $value->amount;
@@ -61,12 +61,12 @@ class TariffController extends Controller
 
     public function showCost(CostTariff $CostTariff)
     {
-dd('cost',$CostTariff);
+// dd('cost',$CostTariff);
         $valuesByWeight = [];
-        foreach ($tariff->values as $value) {
-            $valuesByWeight[$value->weight]['zone'.$value->zone] = $value->price;
+        foreach ($CostTariff->values as $value) {
+            $valuesByWeight[$value->weight]['zone'.$value->zone] = $value->amount;
         }
-        $tariff->valuesByWeight = $valuesByWeight;
+        $CostTariff->valuesByWeight = $valuesByWeight;
 
         return view('admin.tariffs.showcost', compact('CostTariff'));
     }
