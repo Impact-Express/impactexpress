@@ -23,7 +23,6 @@ class BookingController extends Controller
         return view('customer.booking.index', compact('addresses'));
     }
 
-
     public function rateRequest(Request $request)
     {
         $capability = $this->requestAvailableServices($request->all(), auth()->id());
@@ -33,7 +32,6 @@ class BookingController extends Controller
 
         return view('customer.booking.chooseService', compact('capability'));
     }
-
 
     public function chooseService(Request $request)
     {

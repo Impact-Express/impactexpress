@@ -7,14 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class Service extends Model
 {
-    public static function createServiceFromAPIResponse($s) {
-        $service = self::where(['product_code' => $s->{'@type'}])
-            ->with('defaultSalesTariff')
-            ->first();
-        $service->apiData = $s;
-        return $service;
-    }
-
     public static function getServicesByCarrier() {
         $servicesByCarrier = array();
         foreach (self::all() as $service) {
