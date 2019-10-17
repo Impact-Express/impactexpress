@@ -28,9 +28,15 @@ class HERMES extends Model implements Carrier
         $response = $r->send();
         // dd('herm', $response->routingResponseEntries->routingResponseEntry->serviceDescriptions);
 
-        $sd = $response->routingResponseEntries->routingResponseEntry->serviceDescriptions;
+        $routingResponseEntry = $response->routingResponseEntries->routingResponseEntry; 
 
-        dd($sd);
+        foreach ($routingResponseEntry as $entry) {
+            print_r('<pre>');
+            print_r('--');
+            print_r($entry);
+            print_r('</pre>');
+        }
+        dd($routingResponseEntry);
 
         $availableServices = $this->availableServices($sd);
 dd($availableServices);
