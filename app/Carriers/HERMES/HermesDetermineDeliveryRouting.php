@@ -123,9 +123,6 @@ class HermesDetermineDeliveryRouting extends HermesRequest
                             <description>Parcel Desc</description>
                             <originOfParcel>GB</originOfParcel>
                         </parcel>
-                        <services>
-                            <nextDay>true</nextDay>
-                        </services>
                         <senderAddress>
                             <addressLine1>Hermes UK</addressLine1>
                             <addressLine2>Capitol Close</addressLine2>

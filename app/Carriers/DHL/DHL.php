@@ -50,7 +50,7 @@ class DHL extends Model implements CarrierInterface
         // for each of the services, get the customer's tariff value
         $services = [];
         foreach ($availableServices as $service) {
-            $srv = $this->createServiceFromAPIResponse($service); // TODO: mmm needs changing to private method specific to carrier that returns service
+            $srv = $this->createServiceFromAPIResponse($service);
             $srv->getCustomerSalesTariff($customerId);
 // dd($srv);
             // and get the zone for the country as used by given tariff
@@ -227,6 +227,7 @@ class DHL extends Model implements CarrierInterface
             $service = DB::table('services')->where('product_code', $s->{'@type'})->first();
             return !empty($service) ? true : false;
         });
+        // dd($availableServices);
         return $availableServices;
     }
 

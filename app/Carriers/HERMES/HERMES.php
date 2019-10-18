@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Responses\ServiceRequestResult;
 use App\Contracts\CarrierInterface as Carrier;
 use App\Models\Service;
+use App\Models\Country;
+use App\Models\SalesTariffValues;
 
 class HERMES extends Model implements Carrier
 {
@@ -30,16 +32,16 @@ class HERMES extends Model implements Carrier
 
         $routingResponseEntry = $response->routingResponseEntries->routingResponseEntry; 
 
-        foreach ($routingResponseEntry as $entry) {
-            print_r('<pre>');
-            print_r('--');
-            print_r($entry);
-            print_r('</pre>');
-        }
-        dd($routingResponseEntry);
+        // foreach ($routingResponseEntry as $entry) {
+        //     print_r('<pre>');
+        //     print_r('--');
+        //     print_r($entry);
+        //     print_r('</pre>');
+        // }
+        // dd($routingResponseEntry);
 
-        $availableServices = $this->availableServices($sd);
-dd($availableServices);
+        $availableServices = $this->availableServices();
+
 
 //        $temp->short_name = 'Hermes test short name';
 //        $temp->est_delivery = 'Hermes test delivery date';
@@ -49,17 +51,47 @@ dd($availableServices);
 //        $temp->carrier = 'Hermes';
 //        $data[] = $temp;
         $services = [];
-        $srv = new Service;
-        $srv->capability = [
-            'short_name' => 'Hermes test short name',
-            'est_delivery' => 'Hermes test delivery date',
-            'latest_booking' => 'Hermes test latest booking',
-            'product_code' => 'NDAY',
-            'price' => '7357',
-            'carrier' => 'Hermes'
-        ];
+        // $srv = new Service;
+        // $srv->capability = [
+        //     'short_name' => 'Hermes test short name',
+        //     'est_delivery' => 'Hermes test delivery date',
+        //     'latest_booking' => 'Hermes test latest booking',
+        //     'product_code' => 'NDAY',
+        //     'price' => '7357',
+        //     'carrier' => 'Hermes'
+        // ];
 
-        $services[] = $srv;
+        // placeholder for now
+        // Calculate chargable weight
+        $totalChargeableWeight = 2.6;
+
+        foreach ($availableServices as $service) {
+            $service->getCustomerSalesTariff($customerId);
+            $countryId = Country::where('code', $request['recipientCountryCode'])->first()->id;
+            $service->zone = $service->applicableSalesTariff->countryZones->where('country_id', $countryId)->first()->zone;
+            $service->tariffValue = SalesTariffValues::where(
+                [
+                    ['sales_tariff_id', $service->applicableSalesTariff->id],
+                    ['zone', $service->zone],
+                    ['documents', (isset($request['documents']) && $request['documents'] === "on") ? 1 : 0],
+                    ['weight', '>=', $totalChargeableWeight],
+                    ['weight', '<', ($totalChargeableWeight+0.5)]
+                ]
+            )->first();
+            // dd($service);
+
+            $service->capability = [
+                'short_name' => ucfirst($service->short_name),
+                'est_delivery' => 'Whenever',
+                'latest_booking' => 'today',
+                'product_code' => $service->product_code,
+                'price' => number_format($service->tariffValue->amount, 2),
+                'carrier' => 'HERMES'
+            ];
+
+            $services[] = $service;
+        }
+
         return new ServiceRequestResult($services);
     }
 
@@ -77,18 +109,21 @@ dd($availableServices);
         return $this->name;
     }
 
+
     /**
-     * Filter out the services we don't offer, e.g. Medical Express
-     * @param $services
+     * Private methods
+     */
+
+    /**
+     * Filter out the services we don't offer
      * @return array
      */
-    private function availableServices(array $services) : array
+    private function availableServices() : array
     {
-        $availableServices = array_filter($services, function($s) {
-            // For each of the services, grab the DB record if it exists, and return based on its existence.
-            $service = DB::table('services')->where('product_code', $s->serviceDescription->serviceDescriptionText);
-            return !empty($service) ? true : false;
-        });
+        $availableServices = [];
+        $availableServices[] = Service::where(['product_code' => 'H1'])
+            ->with('defaultSalesTariff')
+            ->first();
         return $availableServices;
     }
 }

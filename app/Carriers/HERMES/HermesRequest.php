@@ -45,8 +45,7 @@ abstract class HermesRequest extends Model
             'body' => $this->requestBody
         ]);
         $r = new \SimpleXMLElement($response->getBody()->getContents());
-        // dd(json_decode(json_encode($r)));
-        // return $r;
+
         return json_decode(json_encode($r));
     }
 }
