@@ -143,8 +143,20 @@ class BookingController extends Controller
     public function requestAvailableServices($request, int $customerId) : array {
 //        $this->loadActiveCarriersWithAPI();
         $this->carriers = Carrier::getActiveCarriers();
+        
+        $largestWeight = 0;
+        foreach ($request['parcels'] as $pa) {
+            if ($pa['weight'] > $largestWeight) {
+                $largestWeight = $pa['weight'];
+            }
+        }
+
         $capability = [];
         foreach ($this->carriers as $carrier) {
+
+            // Hermes don't deliver over 15kg
+            if ($largestWeight > 15 && $carrier->name == 'HERMES') continue;
+
             $capability[$carrier->name] = $carrier->api()->requestAvailableServices($request, $customerId);
         }
         $capability = $this->aggregateResults($capability);

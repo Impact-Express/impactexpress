@@ -42,24 +42,7 @@ class HERMES extends Model implements Carrier
 
         $availableServices = $this->availableServices();
 
-
-//        $temp->short_name = 'Hermes test short name';
-//        $temp->est_delivery = 'Hermes test delivery date';
-//        $temp->latest_booking = 'Hermes test latest booking';
-//        $temp->product_code = 'Hermes test product code';
-//        $temp->price = '7357';
-//        $temp->carrier = 'Hermes';
-//        $data[] = $temp;
         $services = [];
-        // $srv = new Service;
-        // $srv->capability = [
-        //     'short_name' => 'Hermes test short name',
-        //     'est_delivery' => 'Hermes test delivery date',
-        //     'latest_booking' => 'Hermes test latest booking',
-        //     'product_code' => 'NDAY',
-        //     'price' => '7357',
-        //     'carrier' => 'Hermes'
-        // ];
 
         // placeholder for now
         // Calculate chargable weight
