@@ -15,12 +15,28 @@
 			<ul class="fieldlist">
 				<h3>Sender Details</h3>
 				<li>
-					<label for="senderContactName">Contact Name</label>
-					<input id="senderContactName" type="text" name="senderContactName" class="k-textbox" value="Steve Stevens">
+					<label for="senderContactFirstName">Contact First Name</label>
+					<input id="senderContactFirstName" type="text" name="senderContactFirstName" class="k-textbox" value="Steve">
+				</li>
+				<li>
+					<label for="senderContactFirstName">Contact Second Name</label>
+					<input id="senderContactSecondName" type="text" name="senderContactSecondName" class="k-textbox" value="Stevens">
 				</li>
 				<li>
 					<label for="senderCompanyName">Company Name</label>
 					<input id="senderCompanyName" type="text" name="senderCompanyName" class="k-textbox" value="StuffAndThat">
+				</li>
+				<li>
+					<label for="senderHouseNumber">House Number</label>
+					<input id="senderHouseNumber" type="text" name="senderHouseNumber" class="k-textbox" value="35">
+				</li>
+				<li>
+					<label for="senderHouseName">House/Building Name</label>
+					<input id="senderHouseName" type="text" name="senderHouseName" class="k-textbox" value="Grand Union House">
+				</li>
+				<li>
+					<label for="senderStreetName">Street name</label>
+					<input id="senderStreetName" type="text" name="senderStreetName" class="k-textbox" value="The Ridgeway">
 				</li>
 				<li>
 					<label for="senderAddressLine1">Address Line 1</label>
