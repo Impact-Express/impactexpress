@@ -169,6 +169,7 @@ class DHL extends Model implements CarrierInterface
         $tracking = new DHLGLOWSTracking();
         $tracking->buildRequestBody($request);
         $tr = $tracking->send();
+dd($tr);
         $t = $tr->trackShipmentRequestResponse->trackingResponse->TrackingResponse;
 //dd($tr);
         $trackingRequestResult = new TrackingRequestResult();

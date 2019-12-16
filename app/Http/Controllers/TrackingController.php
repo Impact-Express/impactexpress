@@ -24,10 +24,10 @@ class TrackingController extends Controller
 
         $shipment = Shipment::where('shipment_ref', $request->input('ref'))->first();
 //dd($shipment);
-
+$shipment = Shipment::first();
         $trackingData = $shipment->requestTrackingData();
 
-//        dd('flibble', $trackingData);
+       dd('flibble', $trackingData);
 
         return view('customer.tracking.trackingResults', compact('trackingData'));
     }

@@ -18,7 +18,7 @@ class DHLGLOWSTracking extends DHLGLOWSRequest
         $messageTime = $dt->toDateString().'T'.$dt->toTimeString().'-00:00';
         $messageRef = hash('md5', $dt);
         $awb = $details;
-$awb = 1129856464;
+$awb = 3678609546;
 		$this->requestBody = '{
 			"trackShipmentRequest":{
 				"trackingRequest":{
@@ -39,5 +39,6 @@ $awb = 1129856464;
 				}
 			}
 		}';
+		
 	}
 }
