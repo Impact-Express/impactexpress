@@ -3,15 +3,16 @@
     @csrf
     <div class="k-content">
         <ul class="fieldlist">
+            <!-- CONTACT TITLE -->
             <li>
-                <label for="contact_name-{{$n}}">{{ __('Contact') }}</label>
+                <label for="contact_title-{{$n}}">{{ __('Contact Title') }}</label>
 
                 <div>
-                    <input id="contact_name-{{$n}}" type="text" class="k-textbox form-control{{ $errors->has('contact_name.'.$n) ? ' is-invalid' : '' }}" name="contact_name[{{$n}}]" value="{{ $address->contact_name }}">
+                    <input id="contact_title-{{$n}}" type="text" class="k-textbox form-control{{ $errors->has('contact_title.'.$n) ? ' is-invalid' : '' }}" name="contact_title[{{$n}}]" value="{{ $address->contact_title }}">
 
-                    @if ($errors->has('contact_name.'.$n))
+                    @if ($errors->has('contact_title.'.$n))
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('contact_name.'.$n) }}</strong>
+                            <strong>{{ $errors->first('contact_title.'.$n) }}</strong>
                         </span>
                     @endif
                 </div>
