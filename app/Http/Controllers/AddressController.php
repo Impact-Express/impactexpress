@@ -97,7 +97,7 @@ class AddressController extends Controller
         if (Auth::id() != $address->user_id) {
             return redirect('/home');
         }
-dd($request->input('country_id'));
+
         $validator = Validator::make($request->all(), [
             'contact_title.*' => 'max:35',
             'company_first_name.*' => 'max:35',
@@ -142,8 +142,6 @@ dd($request->input('country_id'));
             return back()->withInput()->withErrors($validator);
         }
 
-        $address = new Address();
-        $address->user_id = Auth::id();
         $address->contact_title = Arr::first($request->input('contact_title'));
         $address->contact_first_name = Arr::first($request->input('contact_first_name'));
         $address->contact_last_name = Arr::first($request->input('contact_last_name'));
@@ -164,7 +162,6 @@ dd($request->input('country_id'));
         $address->postcode = Arr::first($request->input('postcode'));
         $address->country_id = Arr::first($request->input('country_id'));
         
-        $address->address_type_id = Arr::first($request->input('address_type_id'));
         $address->save();
 
         return redirect('/address');
