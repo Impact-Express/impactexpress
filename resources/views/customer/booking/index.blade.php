@@ -7,7 +7,7 @@
 		<ul class="fieldlist date">
 			<li>
 				<label for="date">Date</label>
-				<input id="date" type="text" name="date" class="k-textbox" value="2019-10-23">
+				<input id="date" type="text" name="date" class="k-textbox" value="2020-01-10">
 			</li>
 		</ul>
 

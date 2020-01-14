@@ -37,9 +37,9 @@ class DHL extends Model implements CarrierInterface
         if (!is_array($services)) {
             $services = array($services);
         }
-//dd($services);
+
         $availableServices = $this->availableServices($services); // returns object or array, which is lame
-//dd($availableServices);
+
         //  calculate the applicable weight of the parcels
         $parcels = $this->calculateApplicableWeights($request['parcels']);
         $totalChargeableWeight = 0;
@@ -52,7 +52,7 @@ class DHL extends Model implements CarrierInterface
         foreach ($availableServices as $service) {
             $srv = $this->createServiceFromAPIResponse($service);
             $srv->getCustomerSalesTariff($customerId);
-// dd($srv);
+
             // and get the zone for the country as used by given tariff
             $countryId = Country::where('code', $request['recipientCountryCode'])->first()->id;
             $srv->zone = $srv->applicableSalesTariff->countryZones->where('country_id', $countryId)->first()->zone;
@@ -66,7 +66,7 @@ class DHL extends Model implements CarrierInterface
                     ['weight', '<', ($totalChargeableWeight+0.5)]
                 ]
             )->first();
-//dd($service);
+
             // determine any surcharges applicable to this shipment
             //      Special delivery by 9 (1030 usa)    per shipment E(M) K(L) - DOCS
             //      Special delivery by 12  per shipment Y   T - DOCS
@@ -113,7 +113,7 @@ class DHL extends Model implements CarrierInterface
                 }
             }
 
-//dd($charges);
+
             $srv->capability = [
                 'short_name' => ucfirst($srv->short_name),
                 'raw_est_delivery' => $srv->apiData->DeliveryTime,
@@ -137,7 +137,7 @@ class DHL extends Model implements CarrierInterface
         $shipmentRequest->buildRequestBody($request);
         $response = $shipmentRequest->send();
         $shipmentRequestResult = new ShipmentRequestResult();
-//dd($response);
+
         $status = $response->ShipmentResponse->Notification[0]->{'@code'} == "0" ? 'success' : 'error';
 
         if ($status == 'success') {
@@ -160,7 +160,6 @@ class DHL extends Model implements CarrierInterface
         }
 
 
-//        dd('DHL', $response, $shipmentRequestResult);
         return $shipmentRequestResult;
     }
 
@@ -169,9 +168,9 @@ class DHL extends Model implements CarrierInterface
         $tracking = new DHLGLOWSTracking();
         $tracking->buildRequestBody($request);
         $tr = $tracking->send();
-dd($tr);
+        dd($tr);
         $t = $tr->trackShipmentRequestResponse->trackingResponse->TrackingResponse;
-//dd($tr);
+
         $trackingRequestResult = new TrackingRequestResult();
         $trackingRequestResult->shipmentRef = $t->AWBInfo->ArrayOfAWBInfoItem->ShipmentInfo->ShipperReference->ReferenceID;
         $trackingRequestResult->consigneeName = $t->AWBInfo->ArrayOfAWBInfoItem->ShipmentInfo->ConsigneeName;
