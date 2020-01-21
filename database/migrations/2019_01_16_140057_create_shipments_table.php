@@ -30,25 +30,33 @@ class CreateShipmentsTable extends Migration
             $table->text('label_image')->nullable();
             $table->date('date');
 
-            $table->string('sender_company_name')->nullable();
-            $table->string('sender_contact_name')->nullable();
-            $table->string('sender_phone')->nullable();
-            $table->string('sender_address_line_1')->nullable();
-            $table->string('sender_address_line_2')->nullable();
-            $table->string('sender_address_line_3')->nullable();
+            $table->string('sender_contact_title');
+            $table->string('sender_contact_first_name');
+            $table->string('sender_contact_last_name');
+            $table->string('sender_company_name');
+            $table->string('sender_home_phone')->nullable();;
+            $table->string('sender_work_phone')->nullable();;
+            $table->string('sender_mobile_phone')->nullable();;
+            $table->string('sender_address_line_1');
+            $table->string('sender_address_line_2')->nullable();;
+            $table->string('sender_address_line_3')->nullable();;
             $table->string('sender_town');
-            $table->string('sender_postcode');
             $table->string('sender_country_id');
+            $table->string('sender_postcode');
 
-            $table->string('recipient_company_name')->nullable();
-            $table->string('recipient_contact_name')->nullable();
-            $table->string('recipient_phone')->nullable();
-            $table->string('recipient_address_line_1')->nullable();
-            $table->string('recipient_address_line_2')->nullable();
-            $table->string('recipient_address_line_3')->nullable();
+            $table->string('recipient_contact_title');
+            $table->string('recipient_contact_first_name');
+            $table->string('recipient_contact_last_name');
+            $table->string('recipient_company_name');
+            $table->string('recipient_home_phone')->nullable();;
+            $table->string('recipient_work_phone')->nullable();;
+            $table->string('recipient_mobile_phone')->nullable();;
+            $table->string('recipient_address_line_1');
+            $table->string('recipient_address_line_2')->nullable();;
+            $table->string('recipient_address_line_3')->nullable();;
             $table->string('recipient_town');
-            $table->string('recipient_postcode');
             $table->string('recipient_country_id');
+            $table->string('recipient_postcode');
 
             $table->boolean('is_remote_area')->default(false);
 
