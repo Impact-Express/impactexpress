@@ -15,12 +15,16 @@
 			<ul class="fieldlist">
 				<h3>Sender Details</h3>
 				<li>
+					<label for="senderContactTitle">Contact First Name</label>
+					<input id="senderContactTitle" type="text" name="senderContactTitle" class="k-textbox" value="Mr">
+				</li>
+				<li>
 					<label for="senderContactFirstName">Contact First Name</label>
 					<input id="senderContactFirstName" type="text" name="senderContactFirstName" class="k-textbox" value="Steve">
 				</li>
 				<li>
-					<label for="senderContactFirstName">Contact Second Name</label>
-					<input id="senderContactSecondName" type="text" name="senderContactSecondName" class="k-textbox" value="Stevens">
+					<label for="senderContactLastName">Contact Last Name</label>
+					<input id="senderContactLastName" type="text" name="senderContactLastName" class="k-textbox" value="Stevens">
 				</li>
 				<li>
 					<label for="senderCompanyName">Company Name</label>
@@ -63,48 +67,84 @@
 					<input id="senderPostcode" type="text" name="senderPostcode" class="k-textbox" value="SL09BU">
 				</li>
                 <li>
-                    <label for="senderPhone">Post Code</label>
-                    <input id="senderPhone" type="text" name="senderPhone" class="k-textbox" value="07987345234">
+                    <label for="senderHomePhone">Home Phone</label>
+                    <input id="senderHomePhone" type="text" name="senderHomePhone" class="k-textbox" value="07987345234">
+                </li>
+				<li>
+                    <label for="senderWorkPhone">Work Phone</label>
+                    <input id="senderWorkPhone" type="text" name="senderWorkPhone" class="k-textbox" value="07987345234">
+                </li>
+				<li>
+                    <label for="senderMobilePhone">Mobile Phone</label>
+                    <input id="senderMobilePhone" type="text" name="senderMobilePhone" class="k-textbox" value="07987345234">
                 </li>
 			</ul>
 
 			<ul class="fieldlist">
 				<h3>Recipient Details</h3>
 				<li>
-					<label for="recipientContactName">Contact Name</label>
-					<input id="recipientContactName" type="text" name="recipientContactName" class="k-textbox"  value="Richard Bailey">
+					<label for="recipientContactTitle">Contact First Name</label>
+					<input id="recipientContactTitle" type="text" name="recipientContactTitle" class="k-textbox" value="Mr">
+				</li>
+				<li>
+					<label for="recipientContactFirstName">Contact First Name</label>
+					<input id="recipientContactFirstName" type="text" name="recipientContactFirstName" class="k-textbox" value="Robert">
+				</li>
+				<li>
+					<label for="recipientContactLastName">Contact Last Name</label>
+					<input id="recipientContactLastName" type="text" name="recipientContactLastName" class="k-textbox" value="Fisher">
 				</li>
 				<li>
 					<label for="recipientCompanyName">Company Name</label>
 					<input id="recipientCompanyName" type="text" name="recipientCompanyName" class="k-textbox" value="Bob's Bits">
 				</li>
 				<li>
+					<label for="recipientHouseNumber">House Number</label>
+					<input id="recipientHouseNumber" type="text" name="recipientHouseNumber" class="k-textbox" value="5">
+				</li>
+				<li>
+					<label for="recipientHouseName">House/Building Name</label>
+					<input id="recipientHouseName" type="text" name="recipientHouseName" class="k-textbox" value="">
+				</li>
+				<li>
+					<label for="recipientStreetName">Street name</label>
+					<input id="recipientStreetName" type="text" name="recipientStreetName" class="k-textbox" value="Some Street">
+				</li>
+				<li>
 					<label for="recipientAddressLine1">Address Line 1</label>
-					<input id="recipientAddressLine1" type="text" name="recipientAddressLine1" class="k-textbox" value="5 Hotdog Street">
+					<input id="recipientAddressLine1" type="text" name="recipientAddressLine1" class="k-textbox" value="">
 				</li>
 				<li>
 					<label for="recipientAddressLine2">Address Line 2</label>
-					<input id="recipientAddressLine2" type="text" name="recipientAddressLine2" class="k-textbox" value="Townsville">
+					<input id="recipientAddressLine2" type="text" name="recipientAddressLine2" class="k-textbox" value="The Ridgeway">
 				</li>
 				<li>
 					<label for="recipientAddressLine3">Address Line 3</label>
-					<input id="recipientAddressLine3" type="text" name="recipientAddressLine3" class="k-textbox">
+					<input id="recipientAddressLine3" type="text" name="recipientAddressLine3" class="k-textbox" value="Iver">
 				</li>
 				<li>
 					<label for="recipientTown">Town/City</label>
-					<input id="recipientTown" type="text" name="recipientTown" class="k-textbox" value="Beverly Hills">
+					<input id="recipientTown" type="text" name="recipientTown" class="k-textbox" value="Slough">
 				</li>
 				<li>
 					<label for="recipientCountryCode">Country</label>
-					<input id="recipientCountryCode" type="text" name="recipientCountryCode" class="k-textbox" value="US">
+					<input id="recipientCountryCode" type="text" name="recipientCountryCode" class="k-textbox" value="GB" readonly>
 				</li>
 				<li>
 					<label for="recipientPostcode">Post Code</label>
-					<input id="recipientPostcode" type="text" name="recipientPostcode" class="k-textbox" value="90210">
+					<input id="recipientPostcode" type="text" name="recipientPostcode" class="k-textbox" value="SL09BU">
 				</li>
                 <li>
-                    <label for="recipientPhone">Post Code</label>
-                    <input id="recipientPhone" type="text" name="recipientPhone" class="k-textbox" value="555123234">
+                    <label for="recipientHomePhone">Home Phone</label>
+                    <input id="recipientHomePhone" type="text" name="recipientHomePhone" class="k-textbox" value="07987345234">
+                </li>
+				<li>
+                    <label for="recipientWorkPhone">Work Phone</label>
+                    <input id="recipientWorkPhone" type="text" name="recipientWorkPhone" class="k-textbox" value="07987345234">
+                </li>
+				<li>
+                    <label for="recipientMobilePhone">Mobile Phone</label>
+                    <input id="recipientMobilePhone" type="text" name="recipientMobilePhone" class="k-textbox" value="07987345234">
                 </li>
 			</ul>
 		</div>

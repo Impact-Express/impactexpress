@@ -38,7 +38,7 @@ class BookingController extends Controller
     {
         $shipmentDetails = json_decode(session('shipment_json'));
         $service = json_decode(session('capability'))[$request->input('service')];
-
+dd($shipmentDetails);
         // now create a shipment with status of incomplete(default)
         Shipment::createWithPieces([
             'user_id' => auth()->id(),
@@ -49,6 +49,12 @@ class BookingController extends Controller
             'description' => $shipmentDetails->description,
             'declared_value' => $shipmentDetails->declaredValue,
             'price' => $service->capability->price,
+
+            'sender_contact_title' => $shipmentDetails->senderContactTitle,
+            'sender_contact_first_name' => $shipmentDetails->senderContactFirstName,
+            'sender_contact_last_name' => $shipmentDetails->senderContactLastName,
+            'sender_contact_first_name' => $shipmentDetails->senderContactTitle,
+            'sender_contact_first_name' => $shipmentDetails->senderContactTitle,
 
             'sender_contact_name' => $shipmentDetails->senderContactName,
             'sender_company_name' => $shipmentDetails->senderCompanyName,
