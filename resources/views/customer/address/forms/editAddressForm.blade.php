@@ -198,8 +198,6 @@
                 </div>
             </li>
 
-
-
             <li>
                 <button type="submit" class="k-button k-primary">
                     {{ __('Update') }}

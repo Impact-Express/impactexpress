@@ -33,6 +33,7 @@ class BookingController extends Controller
         return view('customer.booking.chooseService', compact('capability'));
     }
 
+
     public function chooseService(Request $request)
     {
         $shipmentDetails = json_decode(session('shipment_json'));
@@ -117,6 +118,7 @@ class BookingController extends Controller
         return redirect(route('booking.confirmation'));
     }
 
+
     public function bookingConfirmation()
     {
         $shipmentUuids = json_decode(session('shipmentUuids'));
@@ -155,7 +157,7 @@ class BookingController extends Controller
         foreach ($this->carriers as $carrier) {
 
             // Hermes don't deliver over 15kg
-            if ($largestWeight > 15 && $carrier->name == 'HERMES') continue;
+            if ($largestWeight > 15 && $carrier->name == 'HERMES') continue; // this stinks, seriously, change it!
 
             $capability[$carrier->name] = $carrier->api()->requestAvailableServices($request, $customerId);
         }
