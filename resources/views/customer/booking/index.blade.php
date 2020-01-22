@@ -112,27 +112,27 @@
 				</li>
 				<li>
 					<label for="recipientAddressLine1">Address Line 1</label>
-					<input id="recipientAddressLine1" type="text" name="recipientAddressLine1" class="k-textbox" value="">
+					<input id="recipientAddressLine1" type="text" name="recipientAddressLine1" class="k-textbox" value="5 Some Street">
 				</li>
 				<li>
 					<label for="recipientAddressLine2">Address Line 2</label>
-					<input id="recipientAddressLine2" type="text" name="recipientAddressLine2" class="k-textbox" value="The Ridgeway">
+					<input id="recipientAddressLine2" type="text" name="recipientAddressLine2" class="k-textbox" value="">
 				</li>
 				<li>
 					<label for="recipientAddressLine3">Address Line 3</label>
-					<input id="recipientAddressLine3" type="text" name="recipientAddressLine3" class="k-textbox" value="Iver">
+					<input id="recipientAddressLine3" type="text" name="recipientAddressLine3" class="k-textbox" value="">
 				</li>
 				<li>
 					<label for="recipientTown">Town/City</label>
-					<input id="recipientTown" type="text" name="recipientTown" class="k-textbox" value="Slough">
+					<input id="recipientTown" type="text" name="recipientTown" class="k-textbox" value="Beverly Hills">
 				</li>
 				<li>
 					<label for="recipientCountryCode">Country</label>
-					<input id="recipientCountryCode" type="text" name="recipientCountryCode" class="k-textbox" value="GB" readonly>
+					<input id="recipientCountryCode" type="text" name="recipientCountryCode" class="k-textbox" value="US" readonly>
 				</li>
 				<li>
 					<label for="recipientPostcode">Post Code</label>
-					<input id="recipientPostcode" type="text" name="recipientPostcode" class="k-textbox" value="SL09BU">
+					<input id="recipientPostcode" type="text" name="recipientPostcode" class="k-textbox" value="90210">
 				</li>
                 <li>
                     <label for="recipientHomePhone">Home Phone</label>
