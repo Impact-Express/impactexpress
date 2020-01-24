@@ -38,7 +38,7 @@ class BookingController extends Controller
     {
         $shipmentDetails = json_decode(session('shipment_json'));
         $service = json_decode(session('capability'))[$request->input('service')];
-dd($shipmentDetails);
+// dd($shipmentDetails);
         // now create a shipment with status of incomplete(default)
         Shipment::createWithPieces([
             'user_id' => auth()->id(),
@@ -53,28 +53,35 @@ dd($shipmentDetails);
             'sender_contact_title' => $shipmentDetails->senderContactTitle,
             'sender_contact_first_name' => $shipmentDetails->senderContactFirstName,
             'sender_contact_last_name' => $shipmentDetails->senderContactLastName,
-            'sender_contact_first_name' => $shipmentDetails->senderContactTitle,
-            'sender_contact_first_name' => $shipmentDetails->senderContactTitle,
-
-            'sender_contact_name' => $shipmentDetails->senderContactName,
             'sender_company_name' => $shipmentDetails->senderCompanyName,
-            'sender_phone' => $shipmentDetails->senderPhone,
+            'sender_house_no' => $shipmentDetails->senderHouseNumber,
+            'sender_house_name' => $shipmentDetails->senderHouseName,
             'sender_address_line_1' => $shipmentDetails->senderAddressLine1,
             'sender_address_line_2' => $shipmentDetails->senderAddressLine2,
             'sender_address_line_3' => $shipmentDetails->senderAddressLine3,
             'sender_town' => $shipmentDetails->senderTown,
+            'sender_country_code' => $shipmentDetails->senderCountryCode,
             'sender_postcode' => $shipmentDetails->senderPostcode,
-            'sender_country_id' => Country::where('code', $shipmentDetails->senderCountryCode)->first()->id,
+            'sender_home_phone' => $shipmentDetails->senderHomePhone,
+            'sender_work_phone' => $shipmentDetails->senderWorkPhone,
+            'sender_mobile_phone' => $shipmentDetails->senderMobilePhone,
 
-            'recipient_contact_name' => $shipmentDetails->recipientContactName,
+            'recipient_contact_title' => $shipmentDetails->recipientContactTitle,
+            'recipient_contact_first_name' => $shipmentDetails->recipientContactFirstName,
+            'recipient_contact_last_name' => $shipmentDetails->recipientContactLastName,
             'recipient_company_name' => $shipmentDetails->recipientCompanyName,
-            'recipient_phone' => $shipmentDetails->recipientPhone,
+            'recipient_house_no' => $shipmentDetails->recipientHouseNumber,
+            'recipient_house_name' => $shipmentDetails->recipientHouseName,
             'recipient_address_line_1' => $shipmentDetails->recipientAddressLine1,
             'recipient_address_line_2' => $shipmentDetails->recipientAddressLine2,
             'recipient_address_line_3' => $shipmentDetails->recipientAddressLine3,
             'recipient_town' => $shipmentDetails->recipientTown,
+            'recipient_country_code' => $shipmentDetails->recipientCountryCode,
             'recipient_postcode' => $shipmentDetails->recipientPostcode,
-            'recipient_country_id' => Country::where('code', $shipmentDetails->recipientCountryCode)->first()->id,
+            'recipient_home_phone' => $shipmentDetails->recipientHomePhone,
+            'recipient_work_phone' => $shipmentDetails->recipientWorkPhone,
+            'recipient_mobile_phone' => $shipmentDetails->recipientMobilePhone,
+            
             'pieces' => $shipmentDetails->parcels
         ]);
 

@@ -44,7 +44,7 @@
                             <p>{{$shipment->sender_address_line_3}}</p>
                             <p>{{$shipment->sender_town}}</p>
                             <p>{{$shipment->sender_postcode}}</p>
-                            <p>{{$shipment->senderCountry->code}}</p>
+                            <p>{{$shipment->sender_country_code}}</p>
                         </div>
                         <div class="col">
                             <p>Recipient</p>
@@ -55,7 +55,7 @@
                             <p>{{$shipment->recipient_address_line_3}}</p>
                             <p>{{$shipment->recipient_town}}</p>
                             <p>{{$shipment->recipient_postcode}}</p>
-                            <p>{{$shipment->recipientCountry->code}}</p>
+                            <p>{{$shipment->recipient_country_code}}</p>
                         </div>
                     </div>
                     <p>Price: &pound;{{number_format($shipment->price, 2)}}</p>

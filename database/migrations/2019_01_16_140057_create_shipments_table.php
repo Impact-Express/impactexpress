@@ -20,7 +20,7 @@ class CreateShipmentsTable extends Migration
             $table->integer('status_id')->default(1);
             $table->integer('carrier_id');
             $table->integer('service_id');
-            $table->integer('account_number_id')->nullable();
+            $table->integer('account_number')->nullable();
             $table->integer('documents');
             $table->string('description')->nullable();
             $table->decimal('price');
@@ -41,7 +41,7 @@ class CreateShipmentsTable extends Migration
             $table->string('sender_address_line_2')->nullable();;
             $table->string('sender_address_line_3')->nullable();;
             $table->string('sender_town');
-            $table->string('sender_country_id');
+            $table->string('sender_country_code');
             $table->string('sender_postcode');
 
             $table->string('recipient_contact_title');
@@ -55,7 +55,7 @@ class CreateShipmentsTable extends Migration
             $table->string('recipient_address_line_2')->nullable();;
             $table->string('recipient_address_line_3')->nullable();;
             $table->string('recipient_town');
-            $table->string('recipient_country_id');
+            $table->string('recipient_country_code');
             $table->string('recipient_postcode');
 
             $table->boolean('is_remote_area')->default(false);

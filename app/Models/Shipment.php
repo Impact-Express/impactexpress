@@ -18,36 +18,37 @@ class Shipment extends Model
     public function requestShipmentBooking() {
         $accountNumber = $this->leastCostRouting();
         $shipmentRef =  $this->generateReference();
-        $shipmentRequestResult = $this->carrier->api()->requestShipment([
-            'dropOffType' => 'REGULAR_PICKUP',
-            'serviceCode' => $this->service->product_code, // ??
-            'accountNumber' => $accountNumber,
-            'shipmentRef' => $shipmentRef,
-            'shipTime' => $this->date,
-            'numberOfPieces' => 2,//count($this->pieces),
-            'description' => $this->description,
-            'customsValue' => $this->declared_value,
-            'content' => $this->documents == "0" ? "NON_DOCUMENTS" : "DOCUMENTS",
-            'senderPersonName' => $this->sender_contact_name,
-            'senderCompanyName' => $this->sender_company_name,
-            'senderPhone' => $this->sender_phone,
-            'senderAddressLine1' => $this->sender_address_line_1,
-            'senderAddressLine2' => $this->sender_address_line_2,
-            'senderAddressLine3' => $this->sender_address_line_3,
-            'senderCity' => $this->sender_town,
-            'senderPostcode' => $this->sender_postcode,
-            'senderCountryCode' => $this->senderCountry->code,
-            'recipientPersonName' => $this->recipient_contact_name,
-            'recipientCompanyName' => $this->recipient_company_name,
-            'recipientPhone' => $this->recipient_phone,
-            'recipientAddressLine1' => $this->recipient_address_line_1,
-            'recipientAddressLine2' => $this->recipient_address_line_2,
-            'recipientAddressLine3' => $this->recipient_address_line_3,
-            'recipientCity' => $this->recipient_town,
-            'recipientPostcode' => $this->recipient_postcode,
-            'recipientCountryCode' => $this->recipientCountry->code,
-            'parcels' => $this->pieces,
-        ]);
+        $shipmentRequestResult = $this->carrier->api()->requestShipment($this);
+        // $shipmentRequestResult = $this->carrier->api()->requestShipment([
+        //     'dropOffType' => 'REGULAR_PICKUP',
+        //     'serviceCode' => $this->service->product_code, // ??
+        //     'accountNumber' => $accountNumber,
+        //     'shipmentRef' => $shipmentRef,
+        //     'shipTime' => $this->date,
+        //     'numberOfPieces' => 2,//count($this->pieces),
+        //     'description' => $this->description,
+        //     'customsValue' => $this->declared_value,
+        //     'content' => $this->documents == "0" ? "NON_DOCUMENTS" : "DOCUMENTS",
+        //     'senderPersonName' => $this->sender_contact_name,
+        //     'senderCompanyName' => $this->sender_company_name,
+        //     'senderPhone' => $this->sender_phone,
+        //     'senderAddressLine1' => $this->sender_address_line_1,
+        //     'senderAddressLine2' => $this->sender_address_line_2,
+        //     'senderAddressLine3' => $this->sender_address_line_3,
+        //     'senderCity' => $this->sender_town,
+        //     'senderPostcode' => $this->sender_postcode,
+        //     'senderCountryCode' => $this->sender_country_code,
+        //     'recipientPersonName' => $this->recipient_contact_name,
+        //     'recipientCompanyName' => $this->recipient_company_name,
+        //     'recipientPhone' => $this->recipient_phone,
+        //     'recipientAddressLine1' => $this->recipient_address_line_1,
+        //     'recipientAddressLine2' => $this->recipient_address_line_2,
+        //     'recipientAddressLine3' => $this->recipient_address_line_3,
+        //     'recipientCity' => $this->recipient_town,
+        //     'recipientPostcode' => $this->recipient_postcode,
+        //     'recipientCountryCode' => $this->recipient_country_code,
+        //     'parcels' => $this->pieces,
+        // ]);
 
 //        dd('shipment->requestShipmentBooking()', $shipmentRequestResult);
 
@@ -69,32 +70,26 @@ class Shipment extends Model
     public static function createWithPieces(array $params) : Shipment
     {
         $shipment = new self;
-        $shipment->user_id = $params['user_id'];
-        $shipment->date = $params['date'];
-        $shipment->carrier_id = $params['carrier_id'];
-        $shipment->service_id = $params['service_id'];
-        $shipment->documents = $params['documents'];
-        $shipment->description = $params['description'];
-        $shipment->declared_value = $params['declared_value'];
-        $shipment->price = $params['price'];
-        $shipment->sender_contact_name = $params['sender_contact_name'];
-        $shipment->sender_company_name = $params['sender_company_name'];
-        $shipment->sender_phone = $params['sender_phone'];
-        $shipment->sender_address_line_1 = $params['sender_address_line_1'];
-        $shipment->sender_address_line_2 = $params['sender_address_line_2'];
-        $shipment->sender_address_line_3 = $params['sender_address_line_3'];
-        $shipment->sender_town = $params['sender_town'];
-        $shipment->sender_postcode = $params['sender_postcode'];
-        $shipment->sender_country_id = $params['sender_country_id'];
-        $shipment->recipient_contact_name = $params['recipient_contact_name'];
-        $shipment->recipient_company_name = $params['recipient_company_name'];
-        $shipment->recipient_phone = $params['recipient_phone'];
-        $shipment->recipient_address_line_1 = $params['recipient_address_line_1'];
-        $shipment->recipient_address_line_2 = $params['recipient_address_line_2'];
-        $shipment->recipient_address_line_3 = $params['recipient_address_line_3'];
-        $shipment->recipient_town = $params['recipient_town'];
-        $shipment->recipient_postcode = $params['recipient_postcode'];
-        $shipment->recipient_country_id = $params['recipient_country_id'];
+        // $shipment->user_id = $params['user_id'];
+        // $shipment->date = $params['date'];
+        // $shipment->carrier_id = $params['carrier_id'];
+        // $shipment->service_id = $params['service_id'];
+        // $shipment->documents = $params['documents'];
+        // $shipment->description = $params['description'];
+        // $shipment->declared_value = $params['declared_value'];
+        // $shipment->price = $params['price'];
+        
+        // $shipment->sender_contact_title = $params['sender_contact_title'];
+        // $shipment->sender_contact_first_name = $params['sender_contact_first_name'];
+        // $shipment->sender_contact_last_name = $params['sender_contact_last_name'];
+        // $shipment->sender_company_name = $params['sender_company_name'];
+        // $shipment->sender_company_name = $params['sender_company_name'];
+
+        foreach ($params as $key => $value) {
+            if ($key == 'pieces') continue;
+            $shipment->$key = $value;
+        }
+
         $shipment->save();
 
         foreach ($params['pieces'] as $num => $piece) {
