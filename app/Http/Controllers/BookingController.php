@@ -137,11 +137,12 @@ class BookingController extends Controller
     public function bookingConfirmation()
     {
         $shipmentUuids = json_decode(session('shipmentUuids'));
-        if (!$shipmentUuids) {
+        if ((\URL::previous() != route('review-shipments')) || !$shipmentUuids) {
             abort(404);
         }
         $shipments = Shipment::whereIn('uuid', $shipmentUuids)->with('pieces')->get();
-        return view('customer.booking.confirmation', compact('shipments', 'storagePath'));
+        // return view('customer.booking.confirmation', compact('shipments', 'storagePath'));
+        return view('customer.booking.confirmation', compact('shipments'));
     }
 
 

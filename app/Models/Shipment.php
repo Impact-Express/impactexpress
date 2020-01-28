@@ -16,45 +16,11 @@ class Shipment extends Model
     }
 
     public function requestShipmentBooking() {
-        // $accountNumber = $this->leastCostRouting();
-        // $shipmentRef =  $this->generateReference();
-        
-        // $shipmentRequestResult = $this->carrier->api()->requestShipment([
-        //     'dropOffType' => 'REGULAR_PICKUP',
-        //     'serviceCode' => $this->service->product_code, // ??
-        //     'accountNumber' => $accountNumber,
-        //     'shipmentRef' => $shipmentRef,
-        //     'shipTime' => $this->date,
-        //     'numberOfPieces' => 2,//count($this->pieces),
-        //     'description' => $this->description,
-        //     'customsValue' => $this->declared_value,
-        //     'content' => $this->documents == "0" ? "NON_DOCUMENTS" : "DOCUMENTS",
-        //     'senderPersonName' => $this->sender_contact_name,
-        //     'senderCompanyName' => $this->sender_company_name,
-        //     'senderPhone' => $this->sender_phone,
-        //     'senderAddressLine1' => $this->sender_address_line_1,
-        //     'senderAddressLine2' => $this->sender_address_line_2,
-        //     'senderAddressLine3' => $this->sender_address_line_3,
-        //     'senderCity' => $this->sender_town,
-        //     'senderPostcode' => $this->sender_postcode,
-        //     'senderCountryCode' => $this->sender_country_code,
-        //     'recipientPersonName' => $this->recipient_contact_name,
-        //     'recipientCompanyName' => $this->recipient_company_name,
-        //     'recipientPhone' => $this->recipient_phone,
-        //     'recipientAddressLine1' => $this->recipient_address_line_1,
-        //     'recipientAddressLine2' => $this->recipient_address_line_2,
-        //     'recipientAddressLine3' => $this->recipient_address_line_3,
-        //     'recipientCity' => $this->recipient_town,
-        //     'recipientPostcode' => $this->recipient_postcode,
-        //     'recipientCountryCode' => $this->recipient_country_code,
-        //     'parcels' => $this->pieces,
-        // ]);
-
         $shipmentRequestResult = $this->carrier->api()->requestShipment($this);
 
         if ($shipmentRequestResult->status == 'error') {
             dd('$shipmentRequestResult->status == error', $shipmentRequestResult);
-        } elseif ($shipmentRequestResult->status == 'success') {
+        } else if ($shipmentRequestResult->status == 'success') {
 
             $this->shipment_ref = $shipmentRequestResult->shipmentRef;
             $this->airwaybill_number = $shipmentRequestResult->airwaybillNumber;
