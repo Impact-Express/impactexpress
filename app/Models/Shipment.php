@@ -16,9 +16,9 @@ class Shipment extends Model
     }
 
     public function requestShipmentBooking() {
-        $accountNumber = $this->leastCostRouting();
-        $shipmentRef =  $this->generateReference();
-        $shipmentRequestResult = $this->carrier->api()->requestShipment($this);
+        // $accountNumber = $this->leastCostRouting();
+        // $shipmentRef =  $this->generateReference();
+        
         // $shipmentRequestResult = $this->carrier->api()->requestShipment([
         //     'dropOffType' => 'REGULAR_PICKUP',
         //     'serviceCode' => $this->service->product_code, // ??
@@ -50,13 +50,13 @@ class Shipment extends Model
         //     'parcels' => $this->pieces,
         // ]);
 
-//        dd('shipment->requestShipmentBooking()', $shipmentRequestResult);
+        $shipmentRequestResult = $this->carrier->api()->requestShipment($this);
 
         if ($shipmentRequestResult->status == 'error') {
             dd('$shipmentRequestResult->status == error', $shipmentRequestResult);
         } elseif ($shipmentRequestResult->status == 'success') {
 
-            $this->shipment_ref = $shipmentRef;
+            $this->shipment_ref = $shipmentRequestResult->shipmentRef;
             $this->airwaybill_number = $shipmentRequestResult->airwaybillNumber;
             $this->label_image = $shipmentRequestResult->labelImage;
 

@@ -2,6 +2,7 @@
 
 namespace App\Carriers\DHL;
 
+use App\Models\Shipment;
 
 class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
 {
@@ -11,58 +12,77 @@ class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
 		parent::__construct();
 	}
 
-	public function buildRequestBody($details)
+	public function buildRequestBody(Shipment $shipment)
 	{
-	    $shipmentTimestamp = $details['shipTime'].'T'.'09:00:00GMT+00:00';
-        $this->ref = $details['shipmentRef'];
-        $packages = $this->packagesToJson($details['parcels']);
+		$accountNumber = $shipment->leastCostRouting();
+
+// dd($shipment);
+		// Format the shipment details for the request body
+		$shipmentTimestamp = $shipment->date.'T'.'09:00:00GMT+00:00';
+		$content = $shipment->documents == "0" ? "NON_DOCUMENTS" : "DOCUMENTS";
+		$shipperPersonName = ($shipment->sender_contact_title ? $shipment->sender_contact_title. ' ' : '')
+								.$shipment->sender_contact_first_name.' '.$shipment->sender_contact_last_name;
+		$shipperStreetLines = ($shipment->sender_house_no ? $shipment->sender_house_no." " : "")
+								.($shipment->sender_house_name ? $shipment->sender_house_name." " : "")
+								.($shipment->sender_street_name);
+		$recipientPersonName = ($shipment->recipient_contact_title ? $shipment->recipient_contact_title. ' ' : '')
+								.$shipment->recipient_contact_first_name.' '.$shipment->recipient_contact_last_name;
+		$recipientStreetLines = ($shipment->recipient_house_no ? $shipment->recipient_house_no." " : "")
+								.($shipment->recipient_house_name ? $shipment->recipient_house_name." " : "")
+								.($shipment->recipient_street_name);
+
+// dd($recipientStreetLines);
+
+
+        $this->ref = $shipment->generateReference();
+        $packages = $this->packagesToJson($shipment->pieces);
 
 		$this->requestBody = '{
 		   "ShipmentRequest":{  
 		      "RequestedShipment":{  
 		         "ShipmentInfo":{  
-		            "DropOffType":"'.$details['dropOffType'].'",
-		            "ServiceType":"'.$details['serviceCode'].'",
-		            "Account":"'.$details['accountNumber'].'",
+		            "DropOffType":"REGULAR_PICKUP",
+		            "ServiceType":"'.$shipment->service->product_code.'",
+		            "Account":"'.$accountNumber.'",
 		            "Currency":"GBP",
 		            "UnitOfMeasurement":"SI"
 		         },
 		         "ShipTimestamp":"'.$shipmentTimestamp.'",
 		         "PaymentInfo":"DAP",
-		         "InternationalDetail":{  
-		            "Commodities":{  
-		               "NumberOfPieces":"'.$details['numberOfPieces'].'",
-		               "Description":"'.$details['description'].'",
-		               "CustomsValue":"'.$details['customsValue'].'"
+		         "InternationalDetail":{
+		            "Commodities":{
+		               "NumberOfPieces":"'."1".'",
+		               "Description":"'.$shipment->description.'",
+		               "CustomsValue":"'.$shipment->declared_value.'"
 		            },
-		            "Content":"'.$details['content'].'"
+		            "Content":"'.$content.'"
 		         },
-		         "Ship":{  
-		            "Shipper":{  
-		               "Contact":{  
-		                  "PersonName":"'.$details['senderPersonName'].'",
-		                  "CompanyName":"'.$details['senderCompanyName'].'",
-		                  "PhoneNumber":"'.$details['senderPhone'].'"
+		         "Ship":{
+		            "Shipper":{
+		               "Contact":{
+		                  "PersonName":"'.$shipperPersonName.'",
+		                  "CompanyName":"'.$shipment->sender_company_name.'",
+		                  "PhoneNumber":"'.$shipment->sender_work_phone.'"
 		               },
 		               "Address":{  
-		                  "StreetLines":"'.$details['senderAddressLine1'].'",
-		                  "City":"'.$details['senderCity'].'",
-		                  "PostalCode":"'.$details['senderPostcode'].'",
-		                  "CountryCode":"'.$details['senderCountryCode'].'"
+						  "StreetLines":"'.$shipperStreetLines.'",
+						  "StreetName":"'.$shipment->sender_street_name.'",
+		                  "City":"'.$shipment->sender_town.'",
+		                  "PostalCode":"'.$shipment->sender_postcode.'",
+		                  "CountryCode":"'.$shipment->sender_country_code.'"
 		               }
 		            },
-		            "Recipient":{  
-		               "Contact":{  
-		                  "PersonName":"'.$details['recipientPersonName'].'",
-		                  "CompanyName":"'.$details['recipientCompanyName'].'",
-		                  "PhoneNumber":"'.$details['recipientPhone'].'"
+		            "Recipient":{
+		               "Contact":{
+		                  "PersonName":"'.$recipientPersonName.'",
+		                  "CompanyName":"'.$shipment->recipient_company_name.'",
+		                  "PhoneNumber":"'.$shipment->recipient_work_phone.'"
 		               },
-		               "Address":{  
-		                  "StreetLines":"'.$details['recipientAddressLine1'].'",
-		                  "City":"'.$details['recipientCity'].'",
-		     
-		                  "PostalCode":"'.$details['recipientPostcode'].'",
-		                  "CountryCode":"'.$details['recipientCountryCode'].'"
+		               "Address":{
+		                  "StreetLines":"'.$recipientStreetLines.'",
+		                  "City":"'.$shipment->recipient_town.'",
+		                  "PostalCode":"'.$shipment->recipient_postcode.'",
+		                  "CountryCode":"'.$shipment->recipient_country_code .'"
 		               }
 		            }
 		         },
@@ -72,8 +92,9 @@ class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
 		      }
 		   }
 		}';
-		// dd($this->requestBody);
+		dd($this->requestBody);
 	}
+
 
     /**
      * Take an array of packages and construct a string of comma separated JSON objects.

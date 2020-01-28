@@ -1,13 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
+<?php
+// for dev purposes only
+use Carbon\Carbon;
+?>
 <form method="POST" action="{{route('rate-request')}}" class="booking-form">
 	@csrf
 	<div class="booking-form">
 		<ul class="fieldlist date">
 			<li>
 				<label for="date">Date</label>
-				<input id="date" type="text" name="date" class="k-textbox" value="2020-01-23">
+				<input id="date" type="text" name="date" class="k-textbox" value="{{Carbon::now()->add(1, 'day')->isoFormat('Y-mm-D')}}">
 			</li>
 		</ul>
 
@@ -31,7 +35,7 @@
 					<input id="senderCompanyName" type="text" name="senderCompanyName" class="k-textbox" value="StuffAndThat">
 				</li>
 				<li>
-					<label for="senderHouseNumber">House Number</label>
+					<label for="senderHouseNumber">House/Flat Number</label>
 					<input id="senderHouseNumber" type="text" name="senderHouseNumber" class="k-textbox" value="35">
 				</li>
 				<li>
@@ -99,7 +103,7 @@
 					<input id="recipientCompanyName" type="text" name="recipientCompanyName" class="k-textbox" value="Bob's Bits">
 				</li>
 				<li>
-					<label for="recipientHouseNumber">House Number</label>
+					<label for="recipientHouseNumber">House/Flat Number</label>
 					<input id="recipientHouseNumber" type="text" name="recipientHouseNumber" class="k-textbox" value="5">
 				</li>
 				<li>

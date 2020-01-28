@@ -3,7 +3,8 @@
 namespace App\Carriers\DHL;
 
 use Illuminate\Database\Eloquent\Model;
-use GuzzleHttp\Client;
+use GuzzleHttp\Client;  // TODO: rmove dependency 
+use App\Models\Shipment;
 
 abstract class DHLGLOWSRequest extends Model
 {
@@ -29,7 +30,7 @@ abstract class DHLGLOWSRequest extends Model
 		parent::__construct();
 	}
 
-	abstract public function buildRequestBody($details);
+	abstract public function buildRequestBody(Shipment $shipment);
 
 	public function send()
 	{
