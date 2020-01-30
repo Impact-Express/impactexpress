@@ -65,7 +65,7 @@
   }
 }
 
-.overlay {
+.spin-overlay {
   display: none;
   position: absolute;
   z-index: 900;

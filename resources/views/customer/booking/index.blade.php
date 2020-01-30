@@ -212,7 +212,7 @@ use Carbon\Carbon;
 	<input type="submit" value="Submit" id="submit-btn" class="k-button k-primary">
 	<button type="button" id="add-parcel" class="k-button add-form-field">Add another parcel</button>
 </form>
-<div class="overlay"></div>
+<div class="spin-overlay"></div>
 <img class="loader" src="{{asset('images/doggo.gif')}}" alt="Spinner">
 @endsection
 

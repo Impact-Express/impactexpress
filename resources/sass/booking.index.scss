@@ -54,7 +54,7 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-.overlay {
+.spin-overlay {
   display:none;
   position:absolute;
   z-index:900;
