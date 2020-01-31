@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<style>.nav-basket{background:#e3e3e3;}</style>
 <h3>Booking Summary</h3>
 <table class="table">
     <thead>

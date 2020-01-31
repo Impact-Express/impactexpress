@@ -3,6 +3,7 @@
 @section('page-title', 'My Saved Addresses')
 
 @section('content')
+<style>.nav-address{background:#e3e3e3;}</style>
     <h3>Saved Addresses</h3>
 {{--    (This page uses hidden forms which expand on click. The plan is to refactor to using modals, in line with the rest of the site)--}}
     <h4>Collection Addresses</h4>

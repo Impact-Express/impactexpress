@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<style>.nav-history{background:#e3e3e3;}</style>
 	<h3>Booking History</h3>
 	<ul class="booking-items">
 		@forelse ($bookings as $booking)

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<style>.nav-tracking{background:#e3e3e3;}</style>
     <h3>Tracking</h3>
     <form method="POST" action="{{route('tracking-results')}}">
         @csrf

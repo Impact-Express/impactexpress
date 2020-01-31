@@ -11,7 +11,7 @@
 
         <div class="logo-banner">
             <div class="banner-top">
-                <div class="logo-img-container"><img class="logo-image" src="assets/images/navbar-logo.png" alt=""></div>
+                <div class="logo-img-container"><img class="logo-image" src="/assets/images/navbar-logo.png" alt=""></div>
                 <div class="logout">
                     <i class="fas fa-lock login-bit"></i>Signed in as {{auth()->user()->name}}  
                     <a class="k-button k-primary login-bit" href="{{ route('logout') }}"
@@ -28,49 +28,51 @@
                 <span class="bolder">booking</span>&nbsp;<span class="light">portal</span>
             </div>
             <nav class="main-nav">
-
-
                 <div class="nav-item">
                     <i class="fas fa-tachometer-alt nav-icon"></i>
-                    <div class="nav-link">DASHBOARD</div>
+                    <a href="{{route('home')}}"><div class="nav-link nav-home">DASHBOARD</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="far fa-user nav-icon"></i>
-                    <div class="nav-link">ACCOUNT</div>
+                    <a href="{{route('account.index')}}"><div class="nav-link nav-account">ACCOUNT</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="far fa-address-card nav-icon"></i>
-                    <div class="nav-link">SAVED ADDRESSES</div>
+                    <a href="{{route('addresses')}}"><div class="nav-link nav-address">SAVED ADDRESSES</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-shipping-fast nav-icon"></i>
-                    <div class="nav-link">SEND A PARCEL</div>
+                    <a href="{{route('send-a-parcel')}}"><div class="nav-link nav-parcel">SEND A PARCEL</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-shopping-basket nav-icon"></i>
-                    <div class="nav-link">BASKET</div>
+                    <a href="{{route('review-shipments')}}"><div class="nav-link nav-basket">BASKET</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-map-marked-alt nav-icon"></i>
-                    <div class="nav-link">TRACK A SHIPMENT</div>
+                    <a href="{{route('tracking')}}"><div class="nav-link nav-tracking">TRACK A SHIPMENT</div></a>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-history nav-icon"></i>
-                    <div class="nav-link">BOOKING HISTORY</div>
+                    <a href="{{route('booking-history')}}"><div class="nav-link nav-history">BOOKING HISTORY</div></a>
                 </div>
-
-
-               
             </nav>
         </div>
     
 
 
 
-    <div id="content">
-        @yield('content')
+    <div class="content">
+
+        <div class="content-inner">
+            @yield('content')
+        </div>
     </div>
 
 </div>
+
+@section('scripts')
+    <script src="{{asset('js/master.js')}}"></script>
+@endsection
 
 @endsection

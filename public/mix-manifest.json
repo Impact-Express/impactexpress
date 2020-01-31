@@ -31,6 +31,7 @@
     "/js/carrier.profile.js": "/js/carrier.profile.js",
     "/js/customer.profile.js": "/js/customer.profile.js",
     "/js/customers.js": "/js/customers.js",
+    "/js/master.js": "/js/master.js",
     "/js/remoteareas.index.js": "/js/remoteareas.index.js",
     "/js/services.index.js": "/js/services.index.js",
     "/js/surcharges.index.js": "/js/surcharges.index.js",

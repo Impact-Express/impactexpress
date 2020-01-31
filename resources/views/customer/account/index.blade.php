@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<style>.nav-account{background:#e3e3e3;}</style>
     <h3>Account Details</h3>
     <ul id="account-items">
         <li class="account-item">

@@ -1,3 +1,7 @@
+.k-button {
+  border-radius: 10px;
+}
+
 .k-button.k-primary {
   background-color: #FECD2F;
   color: black;
@@ -12,12 +16,22 @@
   font-weight: 500;
 }
 
+h3 {
+  margin: 0;
+}
+
 .container {
   margin: 0 200px 0 200px;
 }
 
 .content {
   background: white;
+  padding: 0 50px 0 50px;
+}
+
+.content-inner {
+  background: #E3E3E3;
+  padding: 30px;
 }
 
 .logo-banner {
@@ -54,9 +68,14 @@
 }
 
 .nav-item {
+  width: 13%;
   text-align: center;
   color: white;
   font-size: 50px;
+}
+
+.nav-item a {
+  text-decoration: none;
 }
 
 .nav-link {
@@ -64,11 +83,14 @@
   display: flex;
   justify-content: center;
   height: 30px;
-  width: 200px;
   border-radius: 10px 10px 0 0;
   padding-top: 5px;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.nav-link.active {
+  background: #E3E3E3;
 }
 
 .nav-icon {

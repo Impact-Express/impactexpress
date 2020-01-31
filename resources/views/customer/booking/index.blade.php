@@ -5,6 +5,7 @@
 // for dev purposes only
 use Carbon\Carbon;
 ?>
+<style>.nav-parcel{background:#e3e3e3;}</style>
 <form method="POST" action="{{route('rate-request')}}" class="booking-form">
 	@csrf
 	<div class="booking-form">
@@ -213,7 +214,7 @@ use Carbon\Carbon;
 	<button type="button" id="add-parcel" class="k-button add-form-field">Add another parcel</button>
 </form>
 <div class="spin-overlay"></div>
-<img class="loader" src="{{asset('images/doggo.gif')}}" alt="Spinner">
+<img class="loader" src="{{asset('/assets/images/doggo.gif')}}" alt="Spinner">
 @endsection
 
 @section('styles')
