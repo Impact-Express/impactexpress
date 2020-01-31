@@ -159,7 +159,6 @@ class DHL extends Model implements CarrierInterface
             $shipmentRequestResult->errorMessage = $response->ShipmentResponse->Notification[0]->Message;
         }
 
-
         return $shipmentRequestResult;
     }
 

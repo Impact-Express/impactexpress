@@ -12,7 +12,7 @@ use Carbon\Carbon;
 		<ul class="fieldlist date">
 			<li>
 				<label for="date">Date</label>
-				<input id="date" type="text" name="date" class="k-textbox" value="{{Carbon::now()->add(1, 'day')->isoFormat('Y-MM-D')}}">
+				<input id="date" type="text" name="date" class="k-textbox" value="{{Carbon::now()->add(1, 'day')->isoFormat('Y-MM-DD')}}">
 			</li>
 		</ul>
 

@@ -22,7 +22,7 @@ class Shipment extends Model
             dd('$shipmentRequestResult->status == error', $shipmentRequestResult);
         } else if ($shipmentRequestResult->status == 'success') {
 
-            $this->shipment_ref = $shipmentRequestResult->shipmentRef;
+            // $this->shipment_ref = $shipmentRequestResult->shipmentRef;
             $this->airwaybill_number = $shipmentRequestResult->airwaybillNumber;
             $this->label_image = $shipmentRequestResult->labelImage;
 
@@ -55,6 +55,8 @@ class Shipment extends Model
             if ($key == 'pieces') continue;
             $shipment->$key = $value;
         }
+
+        $shipment->shipment_ref = $shipment->generateReference();
 
         $shipment->save();
 

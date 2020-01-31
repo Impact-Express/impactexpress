@@ -14,6 +14,7 @@ class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
 
 	public function buildRequestBody(Shipment $shipment)
 	{
+		
 		$accountNumber = $shipment->leastCostRouting();
 
 // dd($shipment);
@@ -34,9 +35,10 @@ class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
 // dd($recipientStreetLines);
 
 
-        $this->ref = $shipment->generateReference();
-        $packages = $this->packagesToJson($shipment->pieces);
+		
 
+        $packages = $this->packagesToJson($shipment->pieces);
+// dd($packages);
 		$this->requestBody = '{
 		   "ShipmentRequest":{  
 		      "RequestedShipment":{  
@@ -120,7 +122,7 @@ class DHLGLOWSShipmentRequest extends DHLGLOWSRequest
             $a .= '"Width": '.$package['width'].',';
             $a .= '"Height": '.$package['height'];
             $a .= '},';
-            $a .= '"CustomerReferences": "'.$this->ref.'"';
+            $a .= '"CustomerReferences": "HHHHHHH"';
             $a .= '}';
             $json[] = $a;
             $n++;

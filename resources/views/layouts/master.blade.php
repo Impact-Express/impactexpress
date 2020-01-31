@@ -58,12 +58,11 @@
                 </div>
             </nav>
         </div>
-    
+
 
 
 
     <div class="content">
-
         <div class="content-inner">
             @yield('content')
         </div>
