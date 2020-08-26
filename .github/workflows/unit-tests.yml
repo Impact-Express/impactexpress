@@ -12,4 +12,4 @@ jobs:
     - name: Build
       run: docker run -v $(pwd):/app --rm composer install
     - name: Unit Tests
-      run: docker run -v $(pwd):/app --rm phpunit/phpunit run
+      run: docker run -v $(pwd):/app --rm phpunit/phpunit
